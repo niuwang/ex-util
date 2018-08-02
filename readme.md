@@ -86,7 +86,7 @@ public static void checkFieldVal(Object o,Object o2) throws IllegalAccessExcepti
         f.setAccessible(true); // 设置些属性是可以访问的         
         // 执行具体策略         
         ErrorMeta errorMeta = strate.checkPara(f.getName());         
-        if (errorMeta != null) {             
+        if (errorMeta != null && f.get(o) == null) {             
             throw new LogicException(errorMeta);         
         }     
     } 
